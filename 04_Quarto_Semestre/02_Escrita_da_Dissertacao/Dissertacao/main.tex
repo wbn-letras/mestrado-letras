@@ -1,0 +1,133 @@
+\documentclass[12pt,openright,twoside,a4paper,english,french,spanish,brazil]{abntex2}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{cmap}
+\usepackage{lmodern}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{microtype}
+\usepackage{lipsum}
+
+% --- Informações de dados para CAPA e FOLHA DE ROSTO ---
+\titulo{TÍTULO DA DISSERTAÇÃO: subtítulo se houver}
+\autor{Seu Nome Completo}
+\local{Porto Nacional - TO}
+\data{2025}
+\orientador{Prof. Dr. Nome do Orientador}
+\instituicao{%
+  Universidade Federal do Tocantins -- UFT
+  \par
+  Câmpus de Porto Nacional
+  \par
+  Programa de Pós-Graduação em Letras}
+\tipotrabalho{Dissertação (Mestrado)}
+\preambulo{Dissertação apresentada ao Programa de Pós-Graduação em Letras da Universidade Federal do Tocantins, como requisito parcial para obtenção do título de Mestre em Letras.}
+
+% --- Início do Documento ---
+\begin{document}
+\frenchspacing
+
+% 1. Elementos Pré-Textuais
+\imprimircapa
+\imprimirfolhaderosto*
+
+% Ficha Catalográfica (Exemplo)
+\begin{fichacatalografica}
+    \vspace*{\fill}
+    \begin{center}
+    \fbox{\begin{minipage}[c][8cm]{13.5cm}
+    \small
+    Sobrenome, Nome.
+    \hspace{0.5cm} \imprimirtitulo / \imprimirautor. -- \imprimirlocal, \imprimirdata.
+    \hspace{0.5cm} \pageref{LastPage} p. : il. (algumas color.) ; 30 cm.\\
+    \hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
+    \hspace{0.5cm} \imprimirtipotrabalho~--~\imprimirinstituicao, \imprimirdata.\\
+    \hspace{0.5cm} 1. Palavra-chave1. 2. Palavra-chave2. I. Orientador. II. Universidade Federal do Tocantins. III. Título.
+    \end{minipage}}
+    \end{center}
+\end{fichacatalografica}
+
+% Folha de Aprovação
+\begin{folhadeaprovacao}
+  \begin{center}
+    {\ABNTEXchapterfont\large\imprimirautor}
+    \vspace*{\fill}\par
+    {\ABNTEXchapterfont\bfseries\Large\imprimirtitulo}
+    \vspace*{\fill}
+    \par
+    \begin{minipage}{.5\textwidth}
+        \imprimirpreambulo
+    \end{minipage}%
+    \vspace*{\fill}
+   \end{center}
+   \begin{center}
+    Trabalho aprovado. \imprimirlocal, \today:
+   \end{center}
+   \assinatura{\textbf{\imprimirorientador} \\ Orientador} 
+   \assinatura{\textbf{Prof. Dr. Membro da Banca 1} \\ UFT}
+   \assinatura{\textbf{Prof. Dr. Membro da Banca 2} \\ Convidado Externo}
+\end{folhadeaprovacao}
+
+\begin{dedicatoria}
+   \vspace*{\fill}
+   \centering
+   \noindent
+   \textit{Dedico este trabalho aos meus pais e professores...}
+   \vspace*{2cm}
+\end{dedicatoria}
+
+\begin{agradecimentos}
+Agradeço à UFT, ao Câmpus de Porto Nacional e ao meu orientador...
+\end{agradecimentos}
+
+\begin{resumo}
+Segundo as normas da UFT, o resumo deve conter objetivo, método, resultados e conclusões do documento.
+\vspace{\onelineskip}
+\noindent
+\textbf{Palavras-chave}: Letras. Literatura/Linguística. Tocantins.
+\end{resumo}
+
+\begin{resumo}[Abstract]
+ \begin{otherlanguage*}{english}
+   This is the abstract in English.
+   \vspace{\onelineskip}
+   \noindent
+   \textbf{Keywords}: Letters. Literature/Linguistics. Tocantins.
+ \end{otherlanguage*}
+\end{resumo}
+
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+% 2. Elementos Textuais
+\textual
+
+\chapter{Introdução}
+A introdução deve apresentar o tema, a justificativa e os objetivos (geral e específicos).
+\lipsum[1-3]
+
+\chapter{Fundamentação Teórica}
+\lipsum[4-8]
+
+\chapter{Metodologia}
+Descrição detalhada dos procedimentos metodológicos.
+\lipsum[9-10]
+
+\chapter{Análise dos Resultados}
+\lipsum[11-15]
+
+\chapter{Considerações Finais}
+\lipsum[16-17]
+
+% 3. Elementos Pós-Textuais
+\postextual
+\bibliography{referencias}
+
+\end{document}
