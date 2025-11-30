@@ -37,6 +37,45 @@ A organização dos diretórios segue a cronologia dos 24 meses do curso:
 | **03_Terceiro_Semestre/** | Qualificação da Dissertação. Slides em `Beamer` para a defesa da qualificação. |
 | **04_Quarto_Semestre/** | **Dissertação Final**. Contém o projeto completo configurado com `abntex2`. |
 
+## 📂 Estrutura de Diretórios
+
+O projeto está organizado cronologicamente para refletir a jornada acadêmica do mestrado (24 meses). Abaixo segue a árvore de diretórios atualizada:
+
+```text
+mestrado-letras/
+│
+├── 📜 gerar_mestrado.py         # Script de automação (Scaffolding)
+├── 📄 README.md                 # Documentação do repositório
+│
+├── 📁 01_Primeiro_Semestre/
+│   ├── 01_Metodologia_da_Pesquisa/
+│   |   ├── 📂 Apresentacoes/    # Slides (.tex + Beamer)
+│   |   └── 📂 Artigos/          # Papers finais da disciplina
+│   ├── 02_Historia_do_Pensamento_Linguistico/
+│   |   ├── 📂 Apresentacoes/    # Slides (.tex + Beamer)
+│   |   └── 📂 Artigos/          # Papers finais da disciplina
+│   ├── 03_Analise_do_Discurso/
+│   |   ├── 📂 Apresentacoes/    # Slides (.tex + Beamer)
+│   |   └── 📂 Artigos/          # Papers finais da disciplina
+│   └── 04_Seminarios_Linguisticos/
+│       ├── 📂 Apresentacoes/    # Slides (.tex + Beamer)
+│       └── 📂 Artigos/          # Papers finais da disciplina
+│
+├── 📁 02_Segundo_Semestre/
+│   ├── 01_Seminario_de_Pesquisa_I/
+│   └── 02_Topicos_de_Teoria_da_Literatura/
+│
+├── 📁 03_Terceiro_Semestre/
+│   ├── 01_Seminario_de_Pesquisa_II/
+│   └── 02_Literatura_Historia_e_Imaginario/
+│
+└── 📁 04_Quarto_Semestre/       # Reta Final
+    ├── 01_Docencia_Orientada/
+    └── 02_Escrita_da_Dissertacao/
+        ├── 📂 Apresentacoes/    # Slides da Defesa
+        ├── 📂 Artigos/          # Artigos derivados
+        └── 📂 Dissertacao/      # O Texto Final (main.tex)
+
 > **Nota:** Todos os documentos `.tex` já estão configurados com pré-textuais, citações e referências bibliográficas automáticas.
 
 ---
