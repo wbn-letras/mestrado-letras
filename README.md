@@ -37,6 +37,8 @@ A organização dos diretórios segue a cronologia dos 24 meses do curso:
 | **03_Terceiro_Semestre/** | Qualificação da Dissertação. Slides em `Beamer` para a defesa da qualificação. |
 | **04_Quarto_Semestre/** | **Dissertação Final**. Contém o projeto completo configurado com `abntex2`. |
 
+> **Nota:** Todos os documentos `.tex` já estão configurados com pré-textuais, citações e referências bibliográficas automáticas.
+
 ## 📂 Estrutura de Diretórios
 
 O projeto está organizado cronologicamente para refletir a jornada acadêmica do mestrado (24 meses). Abaixo segue a árvore de diretórios atualizada:
@@ -75,8 +77,7 @@ mestrado-letras/
         ├── 📂 Apresentacoes/    # Slides da Defesa
         ├── 📂 Artigos/          # Artigos derivados
         └── 📂 Dissertacao/      # O Texto Final (main.tex)
-
-> **Nota:** Todos os documentos `.tex` já estão configurados com pré-textuais, citações e referências bibliográficas automáticas.
+```
 
 ---
 
