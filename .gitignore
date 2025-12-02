@@ -33,3 +33,4 @@ estrutura.txt
 # Editores
 .vscode/
 *.swp
+**/*.brf
