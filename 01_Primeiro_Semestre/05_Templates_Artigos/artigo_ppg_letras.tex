@@ -1,0 +1,218 @@
+% ------------------------------------------------------------------------
+% TEMPLATE OFICIAL - REVISTA GESTADI (PPG LETRAS/UFT)
+% Correção: Títulos em Times New Roman (rmfamily) e Tamanho 12
+% ------------------------------------------------------------------------
+
+\documentclass[
+	article,			% Artigo acadêmico
+	12pt,				% Tamanho da fonte do corpo do texto
+	oneside,			% Impressão apenas frente
+	a4paper,			% Tamanho do papel
+	english,			% Idioma adicional
+	brazil				% Idioma principal
+	]{abntex2}
+
+% ---
+% PACOTES FUNDAMENTAIS
+% ---
+\usepackage{cmap}				% Mapeamento de caracteres
+\usepackage{lmodern}			% Fonte base
+\usepackage{mathptmx}           % FONTE TIMES NEW ROMAN (Obrigatória)
+\usepackage[T1]{fontenc}		% Seleção de códigos de fonte
+\usepackage[utf8]{inputenc}		% Codificação do arquivo
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo
+\usepackage{color}				% Controle de cores
+\usepackage{graphicx}			% Inclusão de imagens
+\usepackage{microtype} 			% Melhorias de justificação
+\usepackage{lipsum}				% Gerador de texto de exemplo
+\usepackage[alf]{abntex2cite}	% Citações ABNT (Autor, Data)
+
+% ---
+% CONFIGURAÇÃO DE MARGENS (Norma: Esq/Dir 3.0, Sup/Inf 2.5)
+% ---
+\usepackage{geometry}
+\geometry{
+    left=3.0cm,
+    right=3.0cm,
+    top=2.5cm,
+    bottom=2.5cm
+}
+
+% ---
+% FORÇAR TÍTULOS EM TIMES NEW ROMAN E TAMANHO 12
+% ---
+% O padrão do LaTeX é Sans Serif e tamanhos grandes. 
+% Os comandos abaixo forçam a fonte RM (Roman/Times), Negrito e Tamanho 12.
+
+\renewcommand{\ABNTEXchapterfont}{\rmfamily\bfseries}
+\renewcommand{\ABNTEXsectionfont}{\rmfamily\bfseries\fontsize{12}{15}\selectfont}
+\renewcommand{\ABNTEXsubsectionfont}{\rmfamily\bfseries\fontsize{12}{15}\selectfont}
+\renewcommand{\ABNTEXsubsubsectionfont}{\rmfamily\bfseries\fontsize{12}{15}\selectfont}
+
+% ---
+% CONFIGURAÇÃO DE CABEÇALHO E RODAPÉ (PERSONALIZADO)
+% ---
+\makepagestyle{gestadi}
+
+% Cabeçalho: Apenas número da página à direita (Topo)
+\makeevenhead{gestadi}{}{}{\thepage}
+\makeoddhead{gestadi}{}{}{\thepage}
+
+% Rodapé: Texto centralizado, Times New Roman 10, Simples
+\newcommand{\textorodape}{%
+    \fontsize{10}{12}\selectfont % Fonte 10, entrelinha simples
+    \centering 
+    Gestadi - Revista do Grupo de Estudo de Análise do Discurso \\ 
+    Volume 1, Número 3, 2025 2º semestre (Projeções discursivas)
+}
+\makeevenfoot{gestadi}{}{\textorodape}{}
+\makeoddfoot{gestadi}{}{\textorodape}{}
+
+% ---
+% AJUSTES ESPECÍFICOS DA NORMA
+% ---
+% 1. Citação Longa: Recuo de 3 cm (Norma pede 3cm)
+\setlength{\ABNTEXcitacaorecuo}{3cm}
+
+% 2. Citação Longa: Fonte tamanho 10
+\renewcommand{\ABNTEXfontereduzida}{\fontsize{10}{12}\selectfont} 
+
+% 3. Espaçamento entre linhas 1,5 no texto
+\OnehalfSpacing 
+
+% 4. Recuo de parágrafo 1,25 cm
+\setlength{\parindent}{1.25cm}
+
+% ---
+% INÍCIO DO DOCUMENTO
+% ---
+\begin{document}
+
+% Ativa o estilo de cabeçalho e rodapé personalizado
+\pagestyle{gestadi}
+
+% ---
+% TÍTULOS E AUTORES
+% ---
+\begin{center}
+    % TÍTULO EM PORTUGUÊS (Caixa alta, Negrito, 12, Esp 1.5)
+    {\fontsize{12}{18}\selectfont \textbf{\MakeUppercase{Título do Artigo em Português}}}
+    
+    \vspace{18pt} 
+    
+    % TITLE IN ENGLISH (Caixa alta, Negrito, 12, Esp 1.5)
+    {\fontsize{12}{18}\selectfont \textbf{\MakeUppercase{Title of the Article in English}}}
+\end{center}
+
+\vspace{1cm}
+
+% AUTORES
+\begin{center}
+    Nome do Autor 1\footnote{Titulação, Instituição. Email: autor1@email.com} \\
+    Instituição do Autor 1
+    
+    \vspace{0.5cm}
+    
+    Nome do Autor 2\footnote{Titulação, Instituição. Email: autor2@email.com} \\
+    Instituição do Autor 2
+\end{center}
+
+\vspace{1cm}
+
+% ---
+% RESUMO E ABSTRACT
+% ---
+\begin{SingleSpace} 
+    \fontsize{11}{11}\selectfont % Tamanho 11
+    \noindent 
+    \textbf{Resumo:} \lipsum[1] (Texto em Times New Roman 11, simples, sem recuo).
+    
+    \vspace{0.3cm}
+    \noindent
+    \textbf{Palavras-chave:} Palavra 1; Palavra 2; Palavra 3.
+    
+    \vspace{0.8cm} 
+    
+    \noindent
+    \textbf{Abstract:} \lipsum[2] (Text in Times New Roman 11, single spacing, no indent).
+    
+    \vspace{0.3cm}
+    \noindent
+    \textbf{Keywords:} Word 1; Word 2; Word 3.
+\end{SingleSpace}
+
+\vspace{1cm}
+
+% DATAS
+\begin{flushright}
+    \textbf{Submetido em dia de mês de 2020.}\\
+    \textbf{Aprovado em dia de mês de 2020.}
+\end{flushright}
+
+\vspace{1cm}
+
+% ---
+% CORPO DO TEXTO
+% ---
+
+% Introdução não numerada
+\section*{Introdução}
+\addcontentsline{toc}{section}{Introdução}
+
+A introdução não deve ser numerada. Observe agora que o título "Introdução" acima está em Times New Roman, Negrito e do mesmo tamanho do texto (12), conforme solicitado.
+
+% Seção numerada
+\section{Desenvolvimento do Artigo}
+
+Este título "Desenvolvimento do Artigo" também deve estar em Times New Roman. O LaTeX padrão usaria uma fonte sem serifa e muito maior, mas os comandos \texttt{renewcommand} no início do código corrigiram isso.
+
+Exemplo de citação longa (Recuo 3cm, Fonte 10):
+\begin{citacao}
+Esta é uma citação longa formatada corretamente com Times New Roman, tamanho 10 e recuo de 3cm da margem esquerda. \cite[p. 10]{Eagleton2003}
+\end{citacao}
+
+\section{Resultados}
+
+\begin{table}[htb]
+    \centering
+    \caption{Exemplo de tabela (Times 10)}
+    \label{tab:exemplo}
+    {\fontsize{10}{12}\selectfont
+    \begin{tabular}{lcccc}
+        \hline
+        \textbf{ÁREAS} & \textbf{2018} & \textbf{2019} & \textbf{TOTAL} \\
+        \hline
+        Região 1 & 7 & 8 & 15 \\
+        Região 2 & 5 & 5 & 10 \\
+        \hline
+    \end{tabular}
+    }
+    \par \vspace{0.2cm}
+    {\fontsize{10}{12}\selectfont \textbf{Fonte:} \citeonline{Peterson2015}.}
+\end{table}
+
+% Conclusão não numerada
+\section*{Considerações Finais}
+\addcontentsline{toc}{section}{Considerações Finais}
+
+Texto das considerações finais.
+
+% ---
+% REFERÊNCIAS
+% ---
+\vspace{1cm}
+\section*{Referências}
+\addcontentsline{toc}{section}{Referências}
+
+\begingroup
+    \SingleSpacing
+    \bibliography{referencias}
+\endgroup
+
+\vspace{1cm}
+{\fontsize{10}{12}\selectfont
+\section*{Apêndices e Anexos}
+Texto dos apêndices em fonte 10 e espaçamento simples.
+}
+
+\end{document}

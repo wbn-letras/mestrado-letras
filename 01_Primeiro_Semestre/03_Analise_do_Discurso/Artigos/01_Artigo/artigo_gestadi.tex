@@ -1,0 +1,455 @@
+% ------------------------------------------------------------------------
+% TEMPLATE OFICIAL - REVISTA GESTADI (PPG LETRAS/UFT)
+% Baseado nas normas fornecidas (Google Docs/Texto)
+% ------------------------------------------------------------------------
+
+\documentclass[
+	article,			% Artigo acadêmico
+	12pt,				% Tamanho da fonte do corpo do texto
+	oneside,			% Impressão apenas frente
+	a4paper,			% Tamanho do papel
+	english,			% Idioma adicional
+	brazil				% Idioma principal
+]{abntex2}
+
+% ---
+% PACOTES FUNDAMENTAIS
+% ---
+\usepackage{cmap}				% Mapeamento de caracteres
+\usepackage{lmodern}			% Fonte base
+\usepackage{mathptmx}           % FONTE TIMES NEW ROMAN (Obrigatória)
+\usepackage[T1]{fontenc}		% Seleção de códigos de fonte
+\usepackage[utf8]{inputenc}		% Codificação do arquivo
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo
+\usepackage{color}				% Controle de cores
+\usepackage{graphicx}			% Inclusão de imagens
+\usepackage{microtype} 			% Melhorias de justificação
+\usepackage{lipsum}				% Gerador de texto de exemplo
+\usepackage[alf]{abntex2cite}	% Citações ABNT (Autor, Data)
+%\usepackage[alf]{abntex2cite}   % Citações ABNT (Autor, Data)
+%\renewcommand{\citeopen}{[}     % Troca ( por [
+%\renewcommand{\citeclose}{]}    % Troca ) por ]
+%\usepackage{placeins}           % Cria uma barreira no final de uma seção para uma imagem não salte para seção seguinte
+\usepackage{float}              % Força a posição exata da imagem em uma seção impedindo que salte para a seção seguinte.
+% ---
+% CONFIGURAÇÃO DE MARGENS (Conforme normas)
+% Sup/Inf: 2,5cm | Esq/Dir: 3,0cm
+% ---
+%\usepackage{geometry}
+%\geometry{
+%	left=3.0cm,
+%	right=3.0cm,
+%	top=2.5cm,
+%	bottom=2.5cm
+%}
+
+% ---
+% CONFIGURAÇÃO DE MARGENS E ESPAÇAMENTO DO RODAPÉ
+% ---
+\usepackage{geometry}
+\geometry{
+	left=3.0cm,
+	right=3.0cm,
+	top=2.5cm,
+	bottom=2.5cm,
+	footskip=1.5cm % <--- Aumenta a distância entre o texto e o rodapé
+}
+
+% ---
+% FORÇAR TÍTULOS EM TIMES NEW ROMAN E TAMANHO 12
+% ---
+% O padrão do LaTeX é Sans Serif e tamanhos grandes. 
+% Os comandos abaixo forçam a fonte RM (Roman/Times), Negrito e Tamanho 12.
+
+\renewcommand{\ABNTEXchapterfont}{\rmfamily\bfseries}
+\renewcommand{\ABNTEXsectionfont}{\rmfamily\bfseries\fontsize{12}{15}\selectfont}
+\renewcommand{\ABNTEXsubsectionfont}{\rmfamily\bfseries\fontsize{12}{15}\selectfont}
+\renewcommand{\ABNTEXsubsubsectionfont}{\rmfamily\bfseries\fontsize{12}{15}\selectfont}
+
+% ---
+% CONFIGURAÇÃO DE CABEÇALHO E RODAPÉ (PERSONALIZADO)
+% ---
+\makepagestyle{gestadi}
+
+% Cabeçalho: Apenas número da página à direita (Topo)
+\makeevenhead{gestadi}{}{}{\thepage}
+\makeoddhead{gestadi}{}{}{\thepage}
+
+% Rodapé: Texto centralizado, Times New Roman 10, Simples
+\newcommand{\textorodape}{%
+	\fontsize{10}{12}\selectfont % Fonte 10, entrelinha simples
+	\centering 
+	Gestadi - Revista do Grupo de Estudo de Análise do Discurso \\ 
+	Volume 1, Número 3, 2025 2º semestre (Projeções discursivas)
+}
+\makeevenfoot{gestadi}{}{\textorodape}{}
+\makeoddfoot{gestadi}{}{\textorodape}{}
+
+% ---
+% FORÇAR O TÍTULO DAS REFERÊNCIAS À ESQUERDA
+% ---
+\renewcommand{\bibsection}{%
+	\section*{\refname} % Usa o estilo de seção padrão (Esquerda/Times/Negrito)
+	\bibmark
+	\ifnobibintoc\else
+	\phantomsection
+	\addcontentsline{toc}{section}{\refname} % Adiciona ao sumário
+	\fi
+}
+
+% ---
+% AJUSTES ESPECÍFICOS DA NORMA (Onde difere da ABNT padrão)
+% ---
+
+% 1. Citação Longa: Recuo de 3 cm (Norma pede 3cm, ABNT padrão é 4cm)
+\setlength{\ABNTEXcitacaorecuo}{3cm}
+
+% 2. Citação Longa: Fonte tamanho 10
+\renewcommand{\ABNTEXfontereduzida}{\fontsize{10}{12}\selectfont} 
+
+% 3. Espaçamento entre linhas 1,5 no texto
+\OnehalfSpacing 
+
+% 4. Recuo de parágrafo 1,25 cm
+\setlength{\parindent}{1.25cm}
+
+% ---
+% INÍCIO DO DOCUMENTO
+% ---
+\begin{document}
+	
+	% Ativa o estilo de cabeçalho e rodapé personalizado
+	\pagestyle{gestadi}
+	
+	% ---
+	% TÍTULOS E AUTORES (Manual para garantir formatação exata)
+	% ---
+	\begin{center}
+		% TÍTULO EM PORTUGUÊS (Caixa alta, Negrito, 12, Esp 1.5)
+		{\fontsize{12}{18}\selectfont \textbf{\MakeUppercase{O Mito da Costela e a Constituição do Sujeito-Mulher}}}
+		
+		\vspace{18pt} % Uma linha de espaço (considerando entrelinha 1.5 de 12pt = 18pt)
+		
+		% TITLE IN ENGLISH (Caixa alta, Negrito, 12, Esp 1.5)
+		{\fontsize{12}{18}\selectfont \textbf{\MakeUppercase{The Rib Myth and the Construction of the Female Subject}}}
+	\end{center}
+	
+	\vspace{1cm}
+	
+	% AUTORES (Alinhamento não especificado explicitamente como direita ou centro no texto, 
+	% mas visualmente em artigos costuma ser direita ou centro. Texto diz: "Duas linhas após identificação")
+	%\begin{center}
+	%	Nome do Autor 1\footnote{Titulação, Instituição. Email: autor1@email.com} \\
+	%	Instituição do Autor 1
+	%	
+	%	\vspace{0.5cm}
+	%	
+	%	Nome do Autor 2\footnote{Titulação, Instituição. Email: autor2@email.com} \\
+	%	Instituição do Autor 2
+	%\end{center}
+
+	% Autores à direita
+	\begin{flushright}
+		Wilda Barbosa Nóia\footnote{Mestranda em Letras. Universidade Federal do Tocantins. Email: exemplo@uft.edu.br} \\
+		Universidade Federal do Tocantins
+		\vspace{0.5cm}
+		
+		Nome do Orientador\footnote{Professor Doutor. Universidade Federal do Tocantins.} \\
+		Universidade Federal do Tocantins
+	\end{flushright}
+	
+	\vspace{1cm} % "Duas linhas após a identificação do autor" (aprox 1cm visual)
+	
+	% ---
+	% RESUMO (Fonte 11, Simples, Sem adentramento)
+	% ---
+	\begin{SingleSpace} 
+		\fontsize{11}{11}\selectfont % Tamanho 11
+		\noindent % Sem adentramento
+		\textbf{Resumo:} \lipsum[1] (O resumo deve ter entre 150 e 250 palavras, fonte Times New Roman 11, espaçamento simples, sem recuo na primeira linha).
+		
+		\vspace{0.3cm}
+		\noindent
+		\textbf{Palavras-chave:} Palavra 1; Palavra 2; Palavra 3 (3 a 5, separadas por ponto-e-vírgula).
+		
+		\vspace{0.8cm} % Uma linha após as palavras-chave
+		
+		\noindent
+		\textbf{Abstract:} \lipsum[2] (Translation of the abstract. Must follow the same formatting rules: 11pt, single spacing, no indentation).
+		
+		\vspace{0.3cm}
+		\noindent
+		\textbf{Keywords:} Word 1; Word 2; Word 3 (3 to 5, separated by colon).
+	\end{SingleSpace}
+	
+	\vspace{1cm}
+	
+	% DATAS (Inseridas pelos editores, mas presentes no template)
+	\begin{flushright}
+		\textbf{Submetido em dia de mês de 2020.}\\
+		\textbf{Aprovado em dia de mês de 2020.}
+	\end{flushright}
+	
+	\vspace{1cm}
+	
+	% ---
+	% CORPO DO TEXTO
+	% ---
+	
+	% INTRODUÇÃO (Não numerada, Negrito, Esquerda)
+	\section*{Introdução}
+	\addcontentsline{toc}{section}{Introdução} % Adiciona aos bookmarks do PDF
+	
+	Este trabalho busca explorar a formação discursiva como mecanismo de interpretação dos atos de linguagem, para com isso, desvelar o sentido entrelaçado pelas dimensões linguística, sócio-histórica e ideológica nas relações comunicativas entre indivíduos. Para isso, adotamos a Análise de Discurso (AD) como instrumento metodológico de interpretação e elegemos como corpus o texto, escrito em letras garrafais, “EU NÃO VIM DA SUA COSTELA, VOCÊ QUE VEIO DO MEU ÚTERO”, encontrado no banheiro feminino de uma universidade. A partir desse enunciado é que propomos a discussão sobre \textit{o mito da costela e a constituição do sujeito-mulher} na formação do lugar (ou lugares) de significação sócio-histórico e ideológico ocultado pela opacidade e transparência da linguagem.
+	
+	Essa análise, que é discursiva, baseia-se na teórica da AD proveniente de Michel Pêcheux com os conceitos de discurso, formação discursiva, interdiscurso, intradiscurso, polissemia, paráfrases etc. e outros elementos indispensáveis para um entendimento mais próximo da significação. É nesta perspectiva que adotamos de Eni Orlandi, exponente brasileiro nesta área de pesquisa, os conceitos de silêncio, os esquecimentos 1 (um) e 2 (dois), memória e os procedimentos de análise e, não poderia nos escapar, de Althusser e os Aparelhos Ideológicos de Estados. Tais discussões são imprescindíveis para entendermos como os sujeitos/indivíduos se significam e são significados pelos processos históricos culturais.
+	
+	Esse procedimento de interpretação possibilitará a identificação/compreensão da constituição histórico-ideológico do sujeito “costela” como lugar do “ser mulher”, sua construção político e social como indivíduo feminino/fêmea nesta sociedade. Por mais que, esta tenha alcançado uma significativa redução das desigualdades entre gêneros, ainda se mostra machista e patriarcal, ou seja, tem como elemento central o sujeito: \textit{homem branco hétero e, preferencialmente, europeu}.
+	
+	Escolheu-se como parâmetro de delimitação da presente análise voltada à crença da criação proveniente da religião cristã Ocidental, por ser a predominante no território brasileiro e não outra, mesmo sabendo que no Brasil há vertentes religiões de matrizes africanas, indígenas, dentre outras. Tal recorte é imprescindível para delimitação e interpretação do nosso enunciado problema.
+	
+	Esclarecemos que o intuito aqui não é aborda sobre as diversas problemáticas relacionadas às minores de gêneros, mas debruça-se sobre como se estrutura o apagamento da mulher enquanto fêmea/feminino/feminista sem adentrar detalhes de raça, cor, origem, religião, classe social, etc. Ressaltamos que o objetivo é demonstrar os discursos estruturantes da formação discursiva do lugar mulher, visando desconstruir o mito da criação e a inferiorização da mulher, de maneira a desmontar a ideia de superioridade do homem branco hétero.
+	
+	Portanto, buscamos contribuir para os avanços das pesquisas nesta área dos estudos linguísticos, assim como, interligá-los a outros campos do conhecimento científico ampliando a compreensão da linguagem/língua como produtora de sentidos histórico, ideológico e social.
+	
+	
+	% SEÇÕES NUMERADAS
+	\section{Desenhando a ferramenta de análise}
+	
+	Quando se está no campo teórico da Análise do Discurso, o foco desvia-se, sem se desligar, do texto enquanto simples ato linguístico em si, e coloca-o no campo da significação, onde o sentido não se prende à estrutura linguístico-textual, mas aos processos de produção e reprodução das situações histórica, social e ideológica de sua elaboração (existência)/interpretação.
+	
+	Neste propósito, não se está preocupado se um sentido é o \textit{sentido verdadeiro}, mas como (ele) é produzido ou reproduzido pelos sujeitos em suas práticas de comunicação./// Na perspectiva da Análise do Discurso, o sentido não está na língua em si, mas é atravessado por ela, uma vez que, esta não é imune as ações do tempo, espaço e da ideologia. Por tanto:
+	
+	\begin{citacao}
+		A análise do discurso visa a compreensão de como um objeto simbólico produz sentidos, como ele está investido de significância para e por sujeitos. Essa compreensão, por sua vez, implica em explicitar como o texto organiza os gestos de interpretação que relacionam sujeito e sentido. \cite[p. 24]{Orlandi2015}.
+	\end{citacao}
+	
+	Neste ponto, faz-se oportuno pensar o texto como mensagem transmitida entre interlocutores, não enquanto simples codificação e decodificação de um código por seus falantes, mas como elemento significante. Eles, segundo \citeonline[p. 19]{Orlandi2015}, estão “realizando ao mesmo tempo o processo de significação e não estão separados de forma estanque” ao invés de debruçar-se sobres as mensagens, diz a autora, o que se propõe é pensar aí o discurso. Tomar a língua dessa forma estanque é pensá-la como um fenômeno transparente e imune a ações do tempo e dos lugares no quais ela se manifesta, é desconsiderar que ela se movimenta por diferentes classes antagônicas em si, e entre si. Portanto, é preciso pensar aí não a mensagem, mas o discurso que ela carrega que resulta de uma posição, ou seja, de lutas de classes.
+	
+	\citeonline[p. XX]{Orlandi2015}, revela que \textit{por não ser totalmente fechada em si e ser sujeita a falhas}, a língua não dar conta de cristalizar um sentido a um significante, nem mesmo no interior de seus sistemas linguísticos (morfologia, sintaxe e fonema). Por tanto, um mesmo significante pode circular por diversos campos socioideológicos, ressignificando-se, ou não, a depender da situação, do uso e do sujeito que o emprega. Logo, ainda conforme essa autora, \textit{o discurso é efeito de sentidos entre locutores} e é veiculado não só por textos, palavras ou expressões, mas também por imagens, pelo oculto e/ou pelo vazio.
+	
+	Em decorrência disso, mesmo quando inquerimos da palavra \textit{costela} sua origem com o intuito de alcançar seu significado denotativo, depara-se com a ilusão oferecida pela língua de na raiz encontrar o significado preciso dessa palavra, ou seja, costela vem do Latim \textit{costella} que equivale a flanco, pequena parte lateral do corpo. Segundo o dicionário Aulete Digital, essa palavra tem como significado principal a \textit{ossos achatados e encurvados que formam o tórax}, mas aponta outros significados para esse verbete.  
+	
+	%Em decorrência disso, ao buscarmos na palavra \textit{costela} seu significado, constatamos que vem da palavra latina costa, que quer dizer ‘lado', 'flanco’ e ‘parede’ do corpo, donde se deriva \textit{costula} ou \textit{costella} que remete a ‘pequena costa’, ‘pequena parte lateral do corpo’ que no campo da Anatomia, segundo dicionário Aulete Digital, se relacionada “é cada um dos ossos (12 pares) achatados e encurvados que partem da coluna vertebral e formam a maior parte da parede do tórax”. Mesmo que se trace mais descrições para esclarecer o que é \textit{costela}, o que importa para o discurso é seu uso enquanto prática social/discursiva pelos falantes de uma língua. 
+	
+	Mesmo que se faça uma descrição pormenorizada de \textit{costela}, o que importa para AD é sua prática enunciativa no interior de um discurso, é saber se a enunciação de costela pertence a mesma formação discursivo-ideológica trazida pelo texto bíblico do Gênesis (em que Deus retira de Adão uma costela e a transforma em uma pessoa) e que sentido essa representação mística da \textit{costela de Adão} exerce sobre o sujeito a qual ela é destinada, ou seja, constituída para.  
+	
+	Importante salientar que os sentidos na interpretação discursiva, não estão soltos e submetidos a um único e exclusivo significante, mas estão, segundo \citeonline[p. 8]{Orlandi2015}, “sempre administrados” pelas estruturas que comandam o jogo discursivo-ideológico, na qual os indivíduos são interpelados em sujeitos pela ideologia, e só assim, discursivamente, emergir o sentido praticado naquele lugar e não outro. Logo, é preciso fazer recortes discursivos, no intuito de determinar os sujeitos e os lugares de onde falam. Dessa forma, uma interpretação discursiva não se limita a uma análise puramente superfície do texto/enunciado/palavras/proposição/expressão, o que equivale a dizer que a análise do discurso foca nas práticas dos locutores e suas posições pré-estabelecidas pela ideologia.
+	
+	%Importante salientar que os sentidos na interpretação discursiva, não estão soltos e submetidos a um único e exclusivo significante, portanto segundo \citeonline[p. 8]{Orlandi2015}, eles estão “sempre administrados” pelas estruturas que comandam o jogo discursivo-ideológico, na qual os indivíduos são interpelados em sujeitos pela ideologia, e só assim discursivamente emergir o sentido praticado naquele lugar e tempo. Logo, é preciso trabalhar a interpretação por meio da técnica de recorte. Dessa forma, uma interpretação discursiva não se limita a uma analisar no nível puramente da superfície do texto, o que equivale a dizer que a análise do discurso foca na prática dos locutores e em suas posições pré-estabelecidas pela ideologia.
+	
+	Essa administração dos sentidos está vinculada aos mecanismos de produção e reprodução das condições de produção, ou seja, ao que Althusser descreve como os Aparelhos Ideológicos de Estado -- como as igrejas, os tribunais, a escola, a família, a propriedade, a mídia, dentre outros -- aparelhos estes, que por sua vez, são ideologicamente constituídos e funcionam na formação dos sujeitos e dos sentidos.  
+	
+	Daí, em sua materialidade concreta, conforme \citeonline[p. 132]{Pecheux2014}, “a instância ideológica existe sob a forma de \textit{formações ideológicas} (referidas aos aparelhos ideológicos de Estado), que, ao mesmo tempo, possuem um caráter “regional” \textit{e} comportam posições de classe”, logo podemos concluir com Pêcheux, que “as ideologias práticas são práticas de classes (de luta de classes).”
+	
+	Retornando à palavra \textit{costela}, diríamos que não comporta nenhum sentido em si ou fora da formação discursiva, e que só pode ter seu sentido administrado a partir dela. No caso exemplar que trouxemos, se definirmos que a referida palavra é a costela de Adão do texto bíblico, o lugar de produção/mecanismos de reprodução é igreja-cristã.
+	
+	Voltando a \citeonline[p. 40]{Orlandi2015}, podemos afirmar que “o sentido não existe em si, mas é determinado pelas posições ideológicas colocadas em jogo no processo sócio-histórico em que as palavras são produzidas.” Infere-se que o sentido de costela no enunciado “Eu não vim da tua \textbf{costela}, você que veio do meu \textbf{útero}” se insere em uma formação discursiva dada, isto é, como \citeonline[p. 147]{Pecheux2014}, diria “a partir de uma posição dada numa conjuntura dada, determinada pelo estado da luta de classes, determina \textit{o que pode e deve ser dito}.”
+	
+	Diante dessas verificações, segundo Fernanda Mussalim \cite[p. 360]{Mussalim2011} o “sentido é da ordem das formações discursivas (FD), que, por sua vez, materializam formações ideológicas, que, por sua vez, são da ordem da história”. Portanto, parafraseando a referida autora, a palavra \textit{costela} pode ser a mesma para diversos enunciados, porém seu sentido é determinado a partir dos lugares socio-ideologicamente construído para aquele sujeito, por isso, o sentido decorrer de fatores que não são da ordem do controle da língua.
+	
+	Daí, Orlandi, redige que o “discurso se constitui em seus sentidos porque aquilo que o sujeito diz se inscreve em uma formação discursiva e não outra para ter um sentido e não outro”. Esse sujeito que é produto dessa formação discursiva deve ser ocupado pelo indivíduo que é chamado pela ideologia para representa determinado papel, ou como Louis Althusser \cite[p. 109]{Althusser2025} conceituou “a ideologia interpela os indivíduos enquanto sujeito”, ou seja, para dar viva à forma-sujeito professor, padre, mãe, mulher, os quais ao (re)produzirem um discurso, o fazem como se fossem deles.
+	
+	Ao tocarmos nesta peça fundamental da AD, \citeonline[p. 150]{Pecheux2014} escreve que \textit{os indivíduos são sempre-já sujeito}, isto é, há uma forma-sujeito pré-moldada para cada indivíduo, antes memo de nascer, que ao atuar na condição de sujeito, esquece-se que não é a origem do que diz (da ordem do esquecimento 1). Neste caso, o sujeito tem a ilusão de ser quem controla o sentido, não percebe que seu discurso é atravessado por outros dizeres, ou seja, pelo interdiscurso.  Logo, conforme \citeonline[p. 30]{Orlandi2015} “o que é dito em outro lugar também significa nas ‘nossas’ palavras”, reafirmando claramente que não há um controle do sentido por um sujeito-falante e nem pela língua, mas pelas formações discursivas.
+	
+	Ao referimos que as palavras não têm sentidos em si, e que significam conforme a formação discursiva em jogo, estamos diante de dois elementos extremamente importante aqui, os processos parafrásticos e polissêmicos. Os primeiros, segundo \citeonline[p. 34]{Orlandi2015}, “são aqueles pelos quais em todo dizer há sempre algo que se mantém, isto é, o dizível, a memória”, o segundo, continua a autora, por oposição, “é o deslocamento, ruptura de processos de significação” faz parte do equívoco.
+	
+	Portanto, uma palavra ou enunciado/dito/dizível pode fazer parte não só de uma única formação discursiva, mas de uma cadeia de já-ditos, que Pêcheux chama de \textit{complexo com dominante das formações discursivas} que nada mais é que o interdiscurso. É neste sentido, que uma formação discursiva pode estar atravessada por várias outras como efeito dos processos de transformação/equívoco (polissemia) e de estabilização do sentido (paráfrase) que são ao mesmo tempo complementares e antagônicos entre si.
+	
+	%Essa administração dos sentidos está vinculada aos mecanismos de produção e reprodução, ou seja, ao que Althusser descreve como pertencente aos Aparelhos Ideológicos de Estado, como as igrejas, os tribunais da justiça, escola, dentre outros, estão ideologicamente constituídos. Daí compreendermos, segundo Pêcheux, que em sua materialidade concreta, a instância ideológica existe sob a forma de \textit{formações ideológicas} (referidas aos aparelhos ideológicos de Estado), que, ao mesmo tempo, possuem um caráter “regional” \textit{e} comportam posições de classe \cite[p. 123]{AutorXXXX} [p. 132] temos a materialização à formação discursiva a qual se inscreve o discurso, este por sua vez está contida na formação ideológica que na visão da Análise do Discurso os lugares produzidos, segundo Althusser, pelos
+	
+	\section{Eu não vim da sua costela, você que veio do meu útero}
+	
+	O enunciado ‘Eu \textit{não vim da sua costela, você que veio do meu útero}’ foi, incialmente, encontrado escrito na porta do banheiro feminino de uma universidade pública. Posteriormente, verificou-se que o enunciado, escrito em um cartaz, foi usado por feministas durante a Marcha das Vadias no Brasil, conforme figura 1, adquirindo grande visibilidade e ganhando centena de adeptos tanto nas redes sociais e sites quanto presencial em diversas em cidades como Rio de Janeiro, São Paulo, Curitiba, Pernambuco, Belém, dentre outras.
+	
+	No contexto brasileiro, a Marcha das Vadias, deriva do movimento internacional \textit{Slutwalk} protesto surgido no Canadá em 2011.Conforme Hannan Mccnn, em O livro do feminismo \cite[p. 299]{Mccnn2019}, o \textit{Slutwalk} foi iniciado por universitárias que protestavam contra a culpabilização e o constrangimento de sobreviventes de agressão sexual. Aqui no Brasil, o Slutwalk  ou Marcha das Vadias, ganhou novas configurações, incluindo variados temas relativos à diversidade de gênero, raça, sexualidade, gerações, aborto, liberdade corporal e várias formas violência (patrimonial, psicológica, física, de gênero).
+	
+	Assim, a Marcha das vadias constituiu um movimento de contestação e enfrentamento às formações ideológicas sustentadas pelos Aparelhos Ideológicos de Estado -- AIE. Esses aparelhos como Escola, Igreja, Família, Mídia e Religião, entre outros, são lugares que segundo \citeonline[p. 132]{Pecheux2014}, “comportam posições de classes (lutas de classes)”, que podem ser “aplicadas aos diferentes “objetos” ideológicos regionais das situações concretas, na Escola, na Família etc.”.  Neste sentido a circulação desse enunciado em diferentes lugares e meios midiáticos, demonstra como sujeitos se posicionam em diferentes formações discursivas para contestar contra a ideologia dominante do patriarcado-religioso.
+	
+	\begin{figure}[H] % H força a imagem no lugar indicado na página
+		\centering
+		\caption{Marcha das Vadias no Brasil}
+		% Insere imagem
+		\includegraphics[height=7.2cm]{Imagens/eu_nao_vim_da_sua_costela.png}
+		%\fbox{\begin{minipage}[c][3cm]{8cm} \centering (Espaço para Imagem) \Send{minipage}}
+			\par \vspace{0.2cm}
+			{\fontsize{10}{12}\selectfont \textbf{Fonte:} https://br.pinterest.com/pin/575616396093074904/}
+	\end{figure}
+	
+	%\FloatBarrier  % <--- Nenhuma imagem acima passa daqui para baixo
+	
+	O cartaz traz uma memória do ponto de vista religioso-cristã patriarcal em sua costela que determina que a mulher é originária do homem. Neste sentido, esse cartaz vai de encontro às reflexões de Simone de Beauvoir \cite[p. 13]{Beauvoir2016}, seu as quais “a mulher determina-se e diferencia-se em relação ao homem, ... a fêmea é o inessencial perante o essencial ... o homem é o Sujeito, o Absoluto; ela é o Outro.” A autora identifica a posição de submissão da mulher perante a sociedade patriarcal, onde essa deve ser obediente, dependente, subserviente auxiliadora, ou seja, ela é o Outro se significando a partir/por/pelo Sujeito homem.
+	
+	A primeira parte do enunciado \textit{eu não vim da sua costela} (o sujeito interpelado rejeita a submissão da mulher perante o homem) está em dualidade com a formação discursiva patriarcal religiosa. Percebe-se por meio da memória que o dizer sempre poderia ser dito de outra forma, facilmente ser: \textit{eu vim do útero dela}. Essa construção parafrástica, \citeonline[p. 33]{Orlandi2015} “significa em nosso dizer e nem sempre temos consciência disso”, e ainda que, o “modo dizer não é indiferente aos sentidos”. Por isso, ao dizer \textit{eu não vim da sua costela}, fica implícito essa escolha de palavras não é livre, não é determinada pelo sujeito, mas pela ideologia, ou seja, as escolhas linguísticas significam no nosso dizer e são definidas pela formação discursiva feminista.
+	
+	Ao contrapormos, as duas expressões desvelam-se a transparência da língua, demonstrando que os sentidos não estão nas palavras, expressões, textos, mas nos lugares que determinam, conforme Pêcheux, o que pode e deve ser dito por/para os sujeitos do discurso.
+	
+	Retomando à frase \textit{eu não vim da sua costela, você que veio do meu útero}, nota-se que o intradiscursivo produz o encadeamento entre as duas proposições/oração, em que ‘eu’ corresponde a ‘meu’ e ‘sua’ a ‘você’. Assegurando que a negação da primeira frase, seja naturalizada pela segunda, ou seja, tem a função de legitimar a mulher, que tem útero, não o homem como origem do ‘eu-feminino’.
+	
+	Observa-se que está na base do intradiscurso/dito o possível o determinado a ser dito por aquela formação discursiva, que por sua vez tem seus sentidos atravessados pelo interdiscurso, ou seja, a rede de memória que faz com que aquele enunciado ocorra naquele momento e lugar e dito por este e não aquele sujeito. Logo, a frase acima recebe seus sentidos em oposição a outros discursos, ou seja, o da negação da autoridade da narrativa bíblica da origem da mulher a partir do mito da costela como forma de ratificar a fragilidade, dependência e submissão da mulher ao Sujeito, o Absoluto -- o Homem. Neste sentido, Lola Aronivich, ao prefaciar a edição brasileira da obra A criação da consciência feminista de Gerda Lermer \cite[p. 19]{Lermer2022}, diz:
+	
+	\begin{citacao}
+		a religião foi fundamental tanto para passar os valores patriarcais sobre a inferioridade feminina quanto como arena par que essas ideias fossem contestadas. Durante mil anos, ensina Lerner, as mulheres tiveram que ressignificar o conceito de religião para mudar seu papel \cite[p. 19]{Lermer2022}. 
+	\end{citacao}
+	
+	Assim, a ideia da releitura do texto bíblico não está no momento de sua enunciação, essa ânsia pela ressignificação de textos bíblicos de valores visivelmente patriarcal remonta, segundo \citeonline[p. 26]{Lermer2022} já em Aristóteles quando escreveu, em sua obra Política, “o homem é por natureza superior, e a mulher é inferior; e um domina e a outra é dominada”, ou seja, é anterior ao manuscrito cristão e que, portanto, só poderia ter sofrido pela ideologia dominante patriarcal.
+	
+	Neste sentido, podemos inferir que a consciência feminina de colocar a mulher como um ser capaz de raciocinar/pensar, de força, de escolha e de decisão sobre seu destino, é, conforme vimos com Lerner, anterior à primeira onda do movimento feminino.
+	
+	Com o objetivo puramente didático para melhor compreendermos os acontecimentos, fizemos um recorte cronológico na construção histórica desse movimento, dividindo o movimento feminista em três ondas, que será apresentado segundo adaptação feita do texto de \citeonline[p. 15]{Mccnn2019}: a primeira data cerca do final do século XIX e início do XX -- busca do direito ao voto, escolarização e trabalho. Segunda, intensificaram-se a luta por melhores condições de trabalho, controle da natalidade, direito ao aborto dentre outros. A terceira onda, é marcada pela emersão do feminismo negro, como movimento das múltiplas barreias encaradas pelas mulheres negras, que o feminismo, dominado por mulheres brancas de classe média, deixara de abordar. Além disso, incluiu mulheres trans. Na luta e passaram a abordar temos sobre assédio sexual, desigualdade salarial.
+	
+	De posse do recorte histórico desse movimento social feminino de resistência, constatamos que a escolha sintática enunciada pelo sujeito, não foi aleatória, pois se rementem às produções históricas de lugares determinados para/por aqueles que a reproduz ao utilizar a língua, Michel Pêcheux (\citeyear{Pecheux2014}, p. 146) acrescenta ainda que, o sentido “de uma palavra, de uma expressão, de uma proposição etc., não existe \textit{em si mesmo} [grifos nossos]”, ou seja, não está na sequência fonológica, morfológica ou sintática. Logo, as palavras \textit{mudam de sentido segundo as posições sustentadas por aqueles que as empregam}.
+	
+	A partir dessas posições sustentadas pelo sujeito, posição vazia, ou o que na AD, chama-se de forma-sujeito, que nada mais é o sempre-já, esse lugar já está construído antes mesmo que nascemos (o lugar mulher, mãe, trabalhadora, trans, homem, etc.), diante da frase \textit{eu não vim da sua costela, você que veio do meu útero} o indivíduo ao proferir esse discurso, é interpelado pela ideologia a preencher a forma-sujeito e sustentar os sentidos dessas posições e se significar a partir disso, esse efeito ideológico atua no nível do inconsciente, não percebe o seu assujeitamento ideológico neste ‘lugar vazio’ pré-determinado.
+	
+	Analisando o enunciado discursivo, a evidência da naturalização de mulher submissão, fraca, periférica, pecadora e dócil, produzida pela sociedade patriarcal e em cumplicidade com igreja, ao mesmo tempo que reforça essa condição, constitui forma-sujeito feminista antagônica à forma-sujeito patriarcal mulher. Ao enunciar, o sujeito adere automaticamente à formação discursiva de resistência e luta contra as imposições socialmente naturalizadas pelos mecanismos de controle Estatais.
+	
+	Ao se identificar com essa posição vazia (forma-sujeito) e tomando o enunciado como seu, o indivíduo é interpelado em sujeito-mulher feminista que pensa ser dona de suas vontades, independente e autodeterminada, essência e não mais acessório, porém não percebe a ilusão produzida para que pense que é livre para escolher que tudo que faz e diz parte exclusivamente de sua vontade. Éis, a função da ideologia materializada na linguagem desperta no sujeito, essa condição de ilusão.
+	
+	Neste ponto, voltamos para a questão do apagamento do discurso do Outro: 
+	
+	o movimento feminista é uma formação ideológica de resistência à formação religiosa patriarcal - não está no AIE, mas tem relação como todo o complexo com o dominante - é uma formação ideológica - tem sua formação discursiva; forma-sujeito... poderia pensar como forma do silêncio dentro da estrutura - uma FD que busca ocultar/silenciar outra FD que não vai de encontro com a dominante.
+	
+	\section{Considerações Finais}
+	
+	Feito essa interpretação reflexiva, observa-se que esse discurso circula em outras formações discursivas com seus sentidos e sujeitos:
+	
+	Paráfrase:
+	
+	Na letra da música o Vento, de composição de Djavan e Ronaldo Basto, “Minha mulher, minha irmã/ Minha cara metade/ De carne maçã, maçã/ Minha costela-de-Adão” (site: https://www.letras.mus.br/gal-costa/103599/ data: 5/12/2025)
+	
+	Na letra da música Tieta, de composição de José Bonifácio de Oliveira Sobrinho/Boni, e melodia de Paulo Debétio: “Tieta não foi feita da costela de Adão/É mulher diabo, minha própria tentação/Tieta é a serpente que encantava o paraíso/ Ela veio ao mundo pra virar nosso juízo.” (site: https://www.letras.mus.br/luis-caldas/47069/ data: 5/12/2025)
+	
+	Na letra da música A costela, do músico e compositor Roni de Melo: “Se a mulher é mesmo feita da costela/ Eu agradeço essa graça todo dia/ Se ela fosse de filé ou de picanha/ Com o que a gente ganha/Só o rico que comia.” (https://www.cifraclub.com.br/roni-de-melo/a-costela/letra/ data: 5/12/2025) 
+	
+	
+	Na letra da música Corpo de Mulher, grupo Sensação, compositor Luizinho SP: “Teu corpo de mulher/Que a natureza fez tão bela/Um testamento diz/Que és parte da minha costela/Veneno da maça”. (https://www.letras.mus.br/sensacao/999343/ data: 5/12/2025) 
+	
+	Na letra da música Fada, compositor Luiz Melodia: “As ilusões fartas/A fada com varinha, virei condão/Rabo de pipa, olho de vidro/Pra suportar uma costela de Adão” (https://www.letras.mus.br/luiz-melodia/47112/ data: 5/12/2025)
+	
+	Na letra da música Costela de Adão, Bicho Terra Barrica, tema de carnaval: “É da costela de adão que a gente se conhece/Sem consultar o coração é que o nosso amor padece” (https://www.letras.mus.br/bicho-terra/830421/  data 5/12/2025)
+	
+	Na letra da música Se chama Mulher, compositor Acyr Marques e Arlindo Cruz: “Pode ser uma dama/Pode até ser da ralé/Mas se o peito tem chama/Se chama mulher/Eva nasceu da costela de Adão/E inventou a tal da tentação/Morda a maçã e verá o que é paraíso” (https://www.letras.mus.br/arlindo-cruz/570657/ data: 5/12/2025)
+	
+	Na letra da música Costela, compositor Dolival: “A noite está fria/Dormir só é ruim/Eu vou procurar/Uma costela pra mim” (https://www.letras.mus.br/gino-e-geno/costela/  data: 5/12/2025) 
+	
+	
+	
+%	\section{O mito da costela e o útero - constituindo os sentidos}
+	
+	%O ato, que também é histórico, de convencimento e de se deixar conversar sobre a origem do ser humano por meio da oralidade ou por escrituras religiosas (aquelas classificadas como sagradas) no intuito de responder a existência humana de uma forma simples, não é uma coisa específica das culturas ocidentais, mas de uma quantidade enorme de agrupamentos sociais.
+	
+	%Esse convencimento em algo que se acomoda mais ao “imaginário” o mito é um símbolo de convencimento sobre um acontecimento, uma ideia, uma maneira de ser e até mesmo de origem. É um elemento do imaginário humano presente em diferentes culturas que buscam responder de forma simples as perguntas, complexas, relacionadas a nossa origem e existência, utilizando de Entes Sobrenaturais, segundo Mircea Eliade \cite[p. 13]{Eliade1979}:
+	
+	
+	%Os mitos, efetivamente, narram não apenas a origem do Mundo, dos animais, das plantas e \textbf{do homem} [grifo nossos], mas também de todos os acontecimentos primordiais em consequência dos quais o homem se converteu no que é hoje [...]. Mircea Eliade \cite[p. 13]{Eliade1979}. 
+	
+	%Os mitos, portanto, são narrativas fantasiosas, carregadas de simbologias, cujos, conforme o Dicionário online Michaelis, protagonistas são deuses, semideuses, seres sobrenaturais que representam elementos da natureza.
+	
+	%A origem do ser humano, pela narrativa da Bíblia Cristã, ou melhor do ser classificado por mulher por meio de uma costela, nos leva a uma velha indagação popular sobre \textit{quem veio primeiro o ovo ou a galinha}? Alerto que não temos intensão de fazer qualquer análise sobre essa questão, mas desmistificar ou questionar como a origem da mulher se deu de uma \textit{costela} de um homem. Um ato de um Ser Sobrenatural por meio de elementos da natureza, o homem, essa costela, elemento do mundo real, passa a ter uma característica totalmente diversa com a realidade, ou seja, passa a significar fonte de vida, geração de vida qualidade típica de seres que têm útero.
+	
+	%O que dá forma essa narrativa? Quem são os sujeitos implícitos nela?
+	
+	%“O mito conta a história da primeira pescaria, efetuada por um Ente Sobrenatural, e dessa forma revela simultaneamente um ato sobre humano, ensina aos homens como devem efetuá-lo por seu turno e, finalmente, explica por que essa tribo deve nutrir-se dessa maneira.” \cite[p. 13]{Eliade1979}
+	
+	%“Podemos notar que, assim como o homem moderno se considera constituído pela História, o homem das sociedades arcaicas se proclama o resultado de um certo número de eventos míticos. Nem um nem outro se consideram ``dados'', ``feitos'' de uma vez por todas, assim como, por exemplo, se faz uma ferramenta de uma maneira definitiva.” \cite[p. 13]{Eliade1979}
+	
+	%Conhecer os mitos é aprender o segredo da origem das coisas. Em outros termos, aprende-se não somente como as coisas vieram à existência, mas também onde encontrá-las e como fazer com que reapareçam quando desaparecem. \cite[p. 14]{Eliade1979}
+	
+	%Mircea Eliade \cite[p. 9]{Eliade1979}, “o mito é uma realidade cultural extremamente complexa, que pode ser abordada e interpretada através de perspectivas múltiplas e complementares.”
+	
+	%Percorrendo mais um pouco neste campo de estudo, da Análise do discurso, a escolha do enunciatário das palavras \textit{costela} e \textit{útero}, não foram aleatórias, pois se rementem à condições de produções históricas de lugares sociais determinados para/por aqueles que a reproduz, reforçando a ideia já formulada acima, que o sentido segundo Michel Pêcheux, em \cite[p. 146]{Pecheux2014}, “de uma palavra, de uma expressão, de uma proposição etc., não existe em \textbf{si mesmo} [grifos nossos]”, ou seja, não está na sequência fonológica, morfológica ou sintática. Logo, essas palavras adquirem seus sentidos desses lugares/posições em que se encontram os sujeitos. Neste aspecto, \cite[p. 146-147]{Pecheux2014} resume sua tese, de forma brilhante, dizendo que: \textit{as palavras, expressões, proposições etc., mudam de sentido segundo as posições sustentadas por aqueles que as empregam}, o que quer dizer que elas adquirem seus sentidos em referência a essas posições, isto é, em referência às formações ideológicas. Estas são frutos de contradições e ralações de poderes (a ideologia dominante sobre a dos dominados, lutas de classe).
+	
+	%Chamaremos, segundo Orlandi \cite[p. 41]{Orlandi2015} de formação discursiva como aquilo que numa formação ideológica dada – determina o que pode e deve ser dito. Neste sentido que podemos falar que a depender da formação discursiva em que está inserida a palavra costela pode ter seu sentido delimitado pela posição sustentada daquele que a diz. Logo, diz Pêcheux \cite[p. 147]{Pecheux2014} que:
+	
+	%\begin{citacao}
+	%	\verb|[...]| se uma mesma palavra, uma mesma expressão e uma mesma proposição podem receber sentidos diferentes – todos igualmente “evidentes” - conforme se refiram a esta ou aquela formação discursiva, é porque – vamos repetir – uma palavra, uma expressão não tem \textit{um} sentido que lhe seria “próprio”, vinculado a sua literalidade.
+	%\end{citacao}
+	
+	%Neste momento da análise, somos levados a identificar os \textit{aqueles que as empregam} (referindo a palavras, expressões, etc.), como os sujeitos, ou seja, aquele que crê ser a origem do sentido e não as posições ideológicas que o sustentam.
+	
+	%Daí a assertiva de que os sentidos não existem em si, mas eles existem na medida em que se inscrevem em uma formação discursiva ou em outra.
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+	
+	%Os títulos das seções devem ser numerados com algarismos arábicos. Citações no corpo do texto com até três linhas: ``Exemplo de citação curta'' \cite[p. 12]{Eagleton2003}.
+	
+	%Citações com mais de três linhas devem seguir a regra específica da revista (Recuo de 3cm):
+	
+	%\begin{citacao}
+	%	A análise do discurso visa a compreensão de como um objeto simbólico produz sentidos, como ele está investido de significância para e por sujeitos. Essa compreensão, por sua vez, implica em explicitar como o texto organiza os gestos de interpretação que relacionam sujeito e sentido. \cite[p. 24]{Orlandi2015}
+	%\end{citacao}
+	
+	%\section{Resultados e Discussão}
+	
+	%Exemplo de inserção de tabela. As tabelas devem ter fonte tamanho 10.
+	
+	%\begin{table}[htb]
+	%	\centering
+	%	\caption{Exemplo de tabela.}
+	%	\label{tab:exemplo}
+	%	% Ajuste de fonte para tamanho 10 dentro da tabela
+	%	{\fontsize{10}{12}\selectfont
+	%		\begin{tabular}{lcccc}
+	%			\hline
+	%			\textbf{ÁREAS} & \textbf{2017} & \textbf{2018} & \textbf{2019} & \textbf{TOTAL} \\
+	%			\hline
+	%			Região 1 & 2 & 7 & 8 & 17 \\
+	%			Região 2 & 5 & 8 & 5 & 18 \\
+	%			Região 3 & 3 & 10 & 6 & 19 \\
+	%			\hline
+	%			\textbf{TOTAL} & \textbf{10} & \textbf{25} & \textbf{19} & \textbf{54} \\
+	%			\hline
+	%		\end{tabular}
+	%	}
+	%	\par \vspace{0.2cm}
+	%	{\fontsize{10}{12}\selectfont \textbf{Fonte:} \citeonline{Peterson2015}.}
+	%\end{table}
+	
+	%\subsection{Exemplo de Imagem}
+	
+	%Figuras devem ser centralizadas com legenda numerada.
+	
+	%\begin{figure}[htb]
+	%	\centering
+	%	\caption{Mapa da Região Metropolitana}
+	%	% Insere imagem
+	%	\includegraphics[width=0.8\textwidth]{Imagens/imagem-01.jpg}
+	%	%\fbox{\begin{minipage}[c][3cm]{8cm} \centering (Espaço para Imagem) \Send{minipage}}
+	%	\par \vspace{0.2cm}
+	%	{\fontsize{10}{12}\selectfont \textbf{Fonte:} https://secom.to.gov.br/}
+	%\end{figure}
+	
+	% CONCLUSÃO (Não numerada)
+	%\section*{Considerações Finais}
+	%\addcontentsline{toc}{section}{Considerações Finais}
+	
+	%A seção de considerações finais / conclusão não deve ser numerada. Fonte 12, espaçamento 1,5. Deve ser sucinta e responder aos objetivos da introdução.
+	
+	% ---
+	% REFERÊNCIAS VERSÃO CENTRALIZADA
+	% ---
+	% \vspace{1cm}
+	% \section*{Referências}
+	% \addcontentsline{toc}{section}{Referências}
+	
+	% ---
+	% REFERÊNCIAS ALINHADA À ESQUERDA
+	% ---
+	% Configuração das referências: Espaçamento simples, alinhado à esquerda
+	\begingroup
+		\SingleSpacing
+		\bibliography{referencias}
+	\endgroup
+	
+	% ---
+	% APÊNDICES E ANEXOS (Se houver)
+	% ---
+	%\vspace{1cm}
+	% Fonte 10, espaçamento simples para apêndices conforme norma
+	%{\fontsize{10}{12}\selectfont
+	%	\section*{Apêndices e Anexos}
+	%	Apêndices e anexos devem vir após as referências, em fonte Times New Roman, tamanho 10, espaçamento simples.
+	%}
+	
+\end{document}

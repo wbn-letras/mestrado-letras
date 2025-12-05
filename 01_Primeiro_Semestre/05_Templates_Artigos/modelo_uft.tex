@@ -1,0 +1,380 @@
+%% abtex2-modelo-trabalho-academico.tex, v-1.9.7 laurocesar
+%% Customizado para UFT - PPG Letras Porto Nacional
+
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia se preciso)
+	twoside,			% para impressão em verso e anverso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	french,				% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazil				% o último idioma é o principal do documento
+	]{abntex2}
+
+% ---
+% Pacotes básicos 
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversion to UTF8)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{lipsum}				% para geração de dummy text
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{TÍTULO DA DISSERTAÇÃO: subtítulo se houver (Opcional)}
+\autor{NOME COMPLETO DO AUTOR}
+\local{PORTO NACIONAL -- TO}
+\data{2025}
+\orientador{Prof. Dr. Nome do Orientador}
+\coorientador{Prof. Dr. Nome do Coorientador (se houver)}
+\instituicao{%
+  UNIVERSIDADE FEDERAL DO TOCANTINS -- UFT
+  \par
+  CÂMPUS DE PORTO NACIONAL
+  \par
+  PROGRAMA DE PÓS-GRADUAÇÃO EM LETRAS}
+\tipotrabalho{Dissertação (Mestrado)}
+% O preambulo deve conter o tipo do trabalho, o objetivo, o nome da instituição e a área de concentração 
+\preambulo{Dissertação apresentada ao Programa de Pós-Graduação em Letras da Universidade Federal do Tocantins (Câmpus Porto Nacional), como requisito parcial para obtenção do título de Mestre em Letras. \newline\newline Área de Concentração: Estudos Literários / Estudos Linguísticos.}
+% ---
+
+% ---
+% Configurações de aparência do PDF final
+% ---
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex2}{trabalho acadêmico}{uft}, 
+		colorlinks=true,       		% false: box links; true: colored links
+    	linkcolor=black,          	% color of internal links
+    	citecolor=black,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=black,
+		bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% ---
+% Espaçamentos entre linhas e parágrafos 
+% ---
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.25cm} % Padrão ABNT/UFT
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% Compila o índice
+% ---
+\makeindex
+% ---
+
+% ----
+% INÍCIO DO DOCUMENTO
+% ----
+\begin{document}
+
+% Seleciona o idioma principal (para hifenização e nomes de documentos)
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa
+% ---
+\imprimircapa
+% ---
+
+% ---
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+% ---
+\imprimirfolhaderosto*
+% ---
+
+% ---
+% Inserir a ficha bibliografica
+% ---
+% A ficha catalográfica oficial deve ser gerada pelo sistema da biblioteca da UFT (SISBIB).
+% Este é apenas um placeholder para o layout.
+\begin{fichacatalografica}
+	\sffamily
+	\vspace*{\fill}					% Posição vertical
+	\begin{center}					% Minipage Centralizado
+	\fbox{\begin{minipage}[c][8cm]{13.5cm}		% Largura
+	\small
+	\imprimirautor
+	%Sobrenome, Nome do autor
+	
+	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
+	\imprimirlocal, \imprimirdata-
+	
+	\hspace{0.5cm} \pageref{LastPage} p. : il. (algumas color.) ; 30 cm.
+	
+	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
+	
+	\hspace{0.5cm}
+	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
+	\imprimirdata.}
+	
+	\hspace{0.5cm}
+		1. Palavra-chave1.
+		2. Palavra-chave2.
+		2. Palavra-chave3.
+		I. Orientador.
+		II. Universidade Federal do Tocantins.
+		III. Título.
+	\end{minipage}}
+	\end{center}
+\end{fichacatalografica}
+% ---
+
+% ---
+% Folha de aprovação
+% ---
+\begin{folhadeaprovacao}
+
+  \begin{center}
+    {\ABNTEXchapterfont\large\imprimirautor}
+
+    \vspace*{\fill}\center
+    \begin{center}
+      \ABNTEXchapterfont\bfseries\Large\imprimirtitulo
+    \end{center}
+    \vspace*{\fill}
+    
+    \hspace{.45\textwidth}
+    \begin{minipage}{.5\textwidth}
+        \imprimirpreambulo
+    \end{minipage}%
+    \vspace*{\fill}
+   \end{center}
+        
+   \begin{center}
+       Aprovada em: \_\_ de \_\_\_\_\_\_ de \_\_\_\_ .
+       \vspace*{1cm}
+   
+       \textbf{BANCA EXAMINADORA}
+       \vspace*{1cm}
+       
+       \assinatura{\textbf{\imprimirorientador} \\ Orientador - UFT} 
+       \assinatura{\textbf{Prof. Dr. Membro Interno} \\ UFT}
+       \assinatura{\textbf{Prof. Dr. Membro Externo} \\ Instituição de Origem}
+       %\assinatura{\textbf{Professor} \\ Convidado 4}
+      
+   \end{center}
+  
+\end{folhadeaprovacao}
+% ---
+
+% ---
+% Dedicatória
+% ---
+\begin{dedicatoria}
+   \vspace*{\fill}
+   \centering
+   \noindent
+   \textit{Dedico este trabalho a todos que...} \vspace*{1.5cm}
+\end{dedicatoria}
+% ---
+
+% ---
+% Agradecimentos
+% ---
+\begin{agradecimentos}
+Agradeço primeiramente à UFT...
+
+Ao meu orientador...
+
+À CAPES/CNPq (se for bolsista)...
+\end{agradecimentos}
+% ---
+
+% ---
+% Epígrafe
+% ---
+\begin{epigrafe}
+    \vspace*{\fill}
+	\begin{flushright}
+		\textit{``A língua é um sistema de signos que exprimem ideias...''\\
+		(Ferdinand de Saussure)}
+	\end{flushright}
+\end{epigrafe}
+% ---
+
+% ---
+% RESUMOS
+% ---
+
+% resumo em português
+\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
+\begin{resumo}
+ O resumo deve ressaltar o objetivo, o método, os resultados e as conclusões do documento. Deve ser composto de uma sequência de frases concisas e objetivas (e não de uma simples enumeração de tópicos). Deve ter entre 150 e 500 palavras (Norma UFT/ABNT NBR 6028).
+ 
+ \textbf{Palavras-chave}: Linguística. Literatura. Ensino. Tocantins.
+\end{resumo}
+
+% resumo em inglês
+\begin{resumo}[Abstract]
+ \begin{otherlanguage*}{english}
+   This is the english abstract. It must follow the same rules as the portuguese abstract.
+   
+   \textbf{Keywords}: Linguistics. Literature. Teaching. Tocantins.
+ \end{otherlanguage*}
+\end{resumo}
+
+% ---
+% Listas de ilustrações e tabelas
+% ---
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+
+% ---
+% Sumário
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+% ----------------------------------------------------------
+% Introdução (exemplo de capítulo sem numeração, mas presente no sumário)
+% ----------------------------------------------------------
+\chapter[Introdução]{INTRODUÇÃO}
+%\addcontentsline{toc}{chapter}{INTRODUÇÃO} % Se usar chapter*, descomente esta linha
+A introdução deve situar o leitor no contexto do tema pesquisado.
+
+\lipsum[1-3]
+
+% ----------------------------------------------------------
+% Capitulo 1
+% ----------------------------------------------------------
+\chapter{FUNDAMENTAÇÃO TEÓRICA}
+Neste capítulo, aborda-se a teoria de Saussure e seus desdobramentos.
+
+\section{A Dicotomia Língua e Fala}
+Conforme a ABNT NBR 10520 e Manual UFT:
+
+Citação direta curta (até 3 linhas): ``O signo linguístico une não uma coisa e uma palavra, mas um conceito e uma imagem acústica'' \cite[p. 66]{saussure1916}.
+
+Citação direta longa (mais de 3 linhas), deve ter recuo de 4cm, tamanho 10 e espaçamento simples:
+
+\begin{citacao}
+A linguística tem por único e verdadeiro objeto a língua considerada em si mesma e por si mesma. Esta afirmação final do Curso de Linguística Geral marcou o início do estruturalismo. \cite[p. 100]{saussure1916}
+\end{citacao}
+
+\lipsum[4-6]
+
+% ----------------------------------------------------------
+% Capitulo 2
+% ----------------------------------------------------------
+\chapter{METODOLOGIA}
+\lipsum[7-8]
+
+% ----------------------------------------------------------
+% Capitulo 3
+% ----------------------------------------------------------
+\chapter{ANÁLISE DOS RESULTADOS}
+\lipsum[9-12]
+
+% ----------------------------------------------------------
+% Conclusão
+% ----------------------------------------------------------
+\chapter{CONSIDERAÇÕES FINAIS}
+%\addcontentsline{toc}{chapter}{CONSIDERAÇÕES FINAIS}
+\lipsum[13]
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+% ----------------------------------------------------------
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{referencias}
+
+% ----------------------------------------------------------
+% Apêndices (opcional)
+% ----------------------------------------------------------
+\begin{apendicesenv}
+\partapendices
+\chapter{Questionário aplicado}
+\lipsum[14]
+\end{apendicesenv}
+
+% ----------------------------------------------------------
+% Anexos (opcional)
+% ----------------------------------------------------------
+\begin{anexosenv}
+\partanexos
+\chapter{Documentos da Escola}
+\lipsum[15]
+\end{anexosenv}
+
+\end{document}
